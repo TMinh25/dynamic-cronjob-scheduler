@@ -31,6 +31,12 @@ public class CronJob extends QuartzJobBean implements InterruptableJob {
         List<Map<String, Object>> list = jobService.getAllJobs();
         System.out.println("Job list :"+list);
         System.out.println("======================================");
+        try {
+            Thread.sleep(10000);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
 
         //*********** For retrieving stored key-value pairs ***********/
         JobDataMap dataMap = jobExecutionContext.getMergedJobDataMap();

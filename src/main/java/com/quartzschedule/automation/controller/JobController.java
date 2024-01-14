@@ -15,10 +15,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import com.quartzschedule.automation.dto.ServerResponse;
-import com.quartzschedule.automation.job.CronJob;
-import com.quartzschedule.automation.job.SimpleJob;
-import com.quartzschedule.automation.service.JobService;
-import com.quartzschedule.automation.util.ServerResponseCode;
 
 @RestController
 @RequestMapping("/scheduler/")
@@ -190,6 +186,12 @@ public class JobController {
 
         List<Map<String, Object>> list = jobService.getAllJobs();
         return getServerResponse(ServerResponseCode.SUCCESS, list);
+    }
+
+    @RequestMapping("trigger")
+    public ServerResponse trigger (@RequestParam("jobName") String jobName) {
+        jobService.triggerJob(jobName);
+        return getServerResponse(ServerResponseCode.SUCCESS, true);
     }
 
     @RequestMapping("checkJobName")

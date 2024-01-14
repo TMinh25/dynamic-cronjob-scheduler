@@ -21,7 +21,6 @@ public interface JobService {
     boolean resumeJob(String jobName);
     boolean startJobNow(String jobName);
     boolean isJobRunning(String jobName);
-    List<Map<String, Object>> getAllJob();
     //public JobDetail getJob(String JobName);
 
     List<Map<String, Object>> getAllJobs();
@@ -29,4 +28,5 @@ public interface JobService {
     boolean isJobWithNamePresent(String jobName);
     String getJobState(String jobName);
     boolean stopJob(String jobName);
+    boolean triggerJob(String jobName);
 }

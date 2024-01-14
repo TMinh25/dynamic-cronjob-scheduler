@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TriggerListner implements TriggerListener {
-
     @Override
     public String getName() {
         return "globalTrigger";
@@ -15,6 +14,7 @@ public class TriggerListner implements TriggerListener {
 
     @Override
     public void triggerFired(Trigger trigger, JobExecutionContext context) {
+        System.out.println("_____________________________________________________________________________________________________");
         System.out.println("TriggerListner.triggerFired()");
     }
 
@@ -33,7 +33,11 @@ public class TriggerListner implements TriggerListener {
     }
 
     @Override
-    public void triggerComplete(Trigger trigger, JobExecutionContext context, Trigger.CompletedExecutionInstruction triggerInstructionCode) {
+    public void triggerComplete(Trigger trigger, JobExecutionContext context,
+            Trigger.CompletedExecutionInstruction triggerInstructionCode) {
         System.out.println("TriggerListner.triggerComplete()");
+        System.out.println(context);
+        System.out.println(triggerInstructionCode);
+        System.out.println("_____________________________________________________________________________________________________");
     }
 }
